@@ -1,0 +1,14 @@
+﻿@using ViewModels
+@model HealthyFoodOrderItemViewModel
+
+<h2>Edit Quantity for @Model.HealthyFood.Name</h2>
+<form asp-action="Edit" asp-controller="HealthyFoodOrderItem" method="post">
+    <input type="hidden" asp-for="OrderId"/>
+   <input type="hidden" asp-for="Id"/>
+    <div class="form-group">
+        <label asp-for="Quantity"></label>
+        <input asp-for="Quantity" type="number"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Edit item</button>
+</form>

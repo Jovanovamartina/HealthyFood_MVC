@@ -1,0 +1,36 @@
+﻿@using ViewModels
+@model List<HealthyFoodViewModel>
+@{
+    ViewData["Title"] = "Healthy food";
+}
+
+<div class="text-center">
+    <h1 class="display-4" style="color:green">Your diet is a bank account ,Good food choices are good investments</h1>
+</div>
+
+<div class="slider">
+	<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-green-and-purple-fresh-juices-or-smoothies-with-fruit-greens-vegetables-in-wooden-tray-top-view-519988807.jpg);" ></div>
+	<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-selection-of-healthy-food-540997561.jpg);" ></div>
+	<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-healthy-salad-bowl-with-quinoa-tomatoes-chicken-avocado-lime-and-mixed-greens-lettuce-parsley-521741356.jpg" ></div>
+	<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-healthy-homemade-chickpea-and-veggies-salad-diet-vegetarian-vegan-food-vitamin-snack-535446121.jpg);" ></div>
+	<div class="slide" style="background-image:url(https://image.shutterstock.com/z/stock-photo-green-and-purple-fresh-juices-or-smoothies-with-fruit-greens-vegetables-in-wooden-tray-top-view-519988807.jpg);" ></div>
+</div>
+
+@*
+<div class="container">
+    <div class="row">
+    
+            <div >
+          
+                    <div>
+                        <img src="https://th.bing.com/th/id/R.b5cade7c269f2781885deb2134c55c63?rik=cFE2sevL0ao%2b7A&pid=ImgRaw&r=0"  style="height:500px; width:800px;">
+                    </div>
+                
+            </div>
+           
+          
+        </div>
+    </div>
+    *@
+    <a asp-controller="Order" asp-action="Create" class="btn btn-lg mt-4 btn-success col-4 d-block mx-auto">Make your order now</a>
+

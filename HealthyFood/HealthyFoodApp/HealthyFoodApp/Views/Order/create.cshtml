@@ -1,0 +1,41 @@
+﻿@model OrderViewModel
+@using System.Globalization;
+@using ViewModels
+
+<h1>Make an order</h1>
+
+<form asp-action="Create" asp-controller="Order" method="post">
+    <div class="form-group" style="width:50%">
+        <input asp-for="FirstName" class="form-control" placeholder="First Name" />
+        <br />
+        <input asp-for="LastName" class="form-control" placeholder="Last Name" />
+        <br />
+        <input asp-for="Address " class="form-control" placeholder="Address" />
+    </div>
+    <br/>
+   
+ <br/>
+    @{
+        @for (int i = 0; i < ViewBag.food.Count; i++)
+        {
+            <div class="form-group">
+                <input type="hidden" asp-for="@Model.HealthyFood[i].HealthyFood.Id" value="@ViewBag.food[i].Id" />
+                <input type="hidden" asp-for="@Model.HealthyFood[i].Price" value="@ViewBag.food[i].Price">
+                <div>
+                    <label asp-for="@Model.HealthyFood[i].IsSelected" class="form-check-label">@ViewBag.food[i].Name</label>
+                    <input type="checkbox" asp-for="@Model.HealthyFood[i].IsSelected" class="form-check-input" />
+                </div>
+
+                <div>
+                    <label asp-for="@Model.HealthyFood[i].Quantity"></label>
+                    <input type="number" asp-for="@Model.HealthyFood[i].Quantity" />
+                     <h3>@ViewBag.food[i].Price.ToString("C" , CultureInfo.CreateSpecificCulture("mk-MK"))</h3>
+
+                </div>
+                   <img src="@ViewBag.food[i].ImageUrl" alt="@ViewBag.food[i].Name" style="height:100px" />
+            </div>
+        }
+    }
+
+    <button type="submit" class="btn btn-primary">Make your order</button>
+</form>

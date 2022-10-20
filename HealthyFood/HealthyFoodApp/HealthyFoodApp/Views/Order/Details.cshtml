@@ -1,0 +1,64 @@
+﻿@model OrderViewModel
+@using System.Globalization;
+@using ViewModels
+
+<h1>Details for order-id : #@Model.Id</h1>
+
+
+<h2 class="text-center mt-4">Customer Details</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Custommer Name</th>
+            <th scope="col">Custommer Address</th>
+            <th scope="col">Total Order price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.FirstName</td>
+            <td>@Model.LastName</td>
+         
+            <td>@Model.TotalPrice.ToString("C" , CultureInfo.CreateSpecificCulture("mk-MK"))</td>
+        </tr>
+    </tbody>
+</table>
+<hr />
+
+@if (Model.HealthyFood.Count > 0)
+{
+    <h2 class="text-center">Ordered Food</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Quantity </th>
+                <th scope="col">Price</th>
+                <th scope="col">Total Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var item in Model.HealthyFood)
+                {
+                    <tr>
+                        <td>@item.HealthyFood.Name</td>
+                        <td>@item.Quantity</td>
+                        <td>@item.Price</td>
+                        <td>@((item.Quantity * item.Price).ToString("C" , CultureInfo.CreateSpecificCulture("mk-MK")))</td>
+                    </tr>
+                }
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Total Price For all items:</th>
+                <th></th>
+                <th></th>
+                <th>@(Model.HealthyFood.Sum( x => x.Price*x.Quantity).ToString("C" , CultureInfo.CreateSpecificCulture("mk-MK")))</th>
+            </tr>
+        </tfoot>
+    </table>
+}
+

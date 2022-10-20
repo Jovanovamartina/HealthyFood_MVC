@@ -1,0 +1,31 @@
+﻿@using ViewModels
+
+@model List<LocationViewModel>
+
+
+
+<a asp-controller="Location" asp-action="Create" class="btn btn-success w-25 mb-4">Add new location</a>
+<div class="row d-flex justify-content-evenly g-4">
+    @{
+        foreach (var item in Model)
+        {
+                    <div class="card col-3 mx-3 px-0">
+                    <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://dcassetcdn.com/design_img/54913/57203/57203_967296_54913_image.jpg" alt="img">
+          <div class="card-body">
+             <h5 class="card-title" style="color:darkgreen">@item.Name</h5>
+            <p class="card-text">@item.Address</p>
+                            <p>Working Hours : @item.OpensAt:00 - @item.ClosesAt:00</p>
+                          
+                             <div class="d-flex align-center justify-content-around">
+                                <a asp-action="Edit" asp-controller="Location" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                                <a asp-action="Delete" asp-controller="Location" asp-route-id="@item.Id" class="btn btn-danger"> Delete</a>
+                            </div>
+                            </div>   
+                        </div> 
+                        </div>
+                       
+                }
+            }
+       
+        </div>

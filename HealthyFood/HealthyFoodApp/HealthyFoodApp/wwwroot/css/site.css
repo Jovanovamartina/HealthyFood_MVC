@@ -1,0 +1,62 @@
+html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.slider 
+{
+    display: flex;
+    background: #000;
+}
+
+.slide {
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+    border: solid #fff;
+    border-width: 1px;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.25;
+    width: 30%;
+    transition: width 0.8s ease, opacity 0.5s ease;
+}
+    .slide:hover
+{
+   
+    width: 200%;
+    opacity: 1;
+}
+
+
+
+body {
+    margin-bottom: 60px;
+}
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+h1{
+   text-shadow:inherit;
+   font-size:medium;
+}
+.container-fluid {
+    font-size: large;
+    font-weight: bold;
+}
+.card-body{
+    font-family:'Franklin Gothic';
+}
